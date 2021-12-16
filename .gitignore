@@ -1,0 +1,9 @@
+currentversion
+*.zip
+*.tar.gz
+*.tar
+*.tar.bz2
+*.tgz
+*.tbz2
+*.tbz
+build/*
