@@ -1,0 +1,98 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://ihateani.me/vthell-schemas.json",
+    "type": "object",
+    "title": "The VTHell VTuber dataset schema",
+    "description": "This is the schema for VTuber dataset used for VTHell",
+    "required": [
+        "id",
+        "name",
+        "upload_base",
+        "vliver"
+    ],
+    "properties": {
+        "id": {
+            "$id": "#/properties/id",
+            "type": "string",
+            "title": "The Group ID",
+            "description": "This can be a simplification of the group name, or the abbreviation."
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "The Group Name",
+            "description": "The group name, please use a romanized version"
+        },
+        "main_key": {
+            "$id": "#/properties/main_key",
+            "type": "string",
+            "title": "The main channel key",
+            "description": "This is the main channel that are being used (eg. youtube)"
+        },
+        "upload_base": {
+            "$id": "#/properties/main_key",
+            "type": "string",
+            "title": "The upload base path",
+            "description": "The upload base path, that will be used for uploading the files"
+        },
+        "vliver": {
+            "$id": "#/properties/vliver",
+            "type": "array",
+            "title": "The VTuber List in the group",
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/vliver/items",
+                "title": "A list of VLiver of the Group or Organization",
+                "type": "object",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "$id": "#/properties/vliver/items/properties/name",
+                        "type": "string",
+                        "title": "The VTuber Romanized/English Name",
+                        "description": "Will be used as `en_name` key in Database, this is required."
+                    },
+                    "youtube": {
+                        "$id": "#/properties/vliver/items/properties/youtube",
+                        "type": "string",
+                        "title": "The Youtube Channel ID of the VTuber (if exist)",
+                        "description": "For example, if the channel URL is https://www.youtube.com/channel/UC1DCedRgGHBdm81E1llLhOQ, the ID is UC1DCedRgGHBdm81E1llLhOQ"
+                    },
+                    "bilibili": {
+                        "$id": "#/properties/vliver/items/properties/bilibili",
+                        "type": "string",
+                        "title": "The Bilibili User ID of the VTuber (if exist)",
+                        "description": "For example, if the channel URL is https://space.bilibili.com/349991143, the User ID is 349991143"
+                    },
+                    "twitch": {
+                        "$id": "#/properties/vliver/items/properties/twitch",
+                        "type": "string",
+                        "title": "The Twitch Username of the VTuber (if exist)",
+                        "description": "For example, if the channel URL is https://www.twitch.tv/sakuramiko_hololive, the Username is sakuramiko_hololive"
+                    },
+                    "twitcasting": {
+                        "$id": "#/properties/vliver/items/properties/twitcasting",
+                        "type": "string",
+                        "title": "The Twitcasting Username of the VTuber (if exist)",
+                        "description": "For example, if the channel URL is https://twitcasting.tv/natsuiromatsuri, the Username is natsuiromatsuri"
+                    },
+                    "mildom": {
+                        "$id": "#/properties/vliver/items/properties/mildom",
+                        "type": "string",
+                        "title": "The Mildom User ID of the VTuber (if exist)",
+                        "description": "For example, if the channel URL is https://www.mildom.com/profile/10957333, the User ID is 10957333"
+                    },
+                    "twitter": {
+                        "$id": "#/properties/vliver/items/properties/twitter",
+                        "type": "string",
+                        "title": "The Twitter username of the VTuber (if exist)",
+                        "description": "For example, if the page URL is https://twitter.com/tokoyamitowa, the username is tokoyamitowa"
+                    }
+                }
+            }
+        }
+    },
+    "additionalProperties": true
+}
