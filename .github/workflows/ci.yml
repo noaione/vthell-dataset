@@ -24,7 +24,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install -U jsonschema
+          pip install -r requirements.txt -U
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
 
       - name: Validate Dataset
