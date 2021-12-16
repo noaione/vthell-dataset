@@ -1,0 +1,31 @@
+name: Dataset
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'skip dataset')"
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Archive Dataset
+        run: |
+          python3 ci/archive.py
+
+      - name: Deploy to Archive
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          BRANCH: archive
+          FOLDER: build
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          MESSAGE: "🔁 Dataset update from @ noaione/vthell@{long-sha}"
