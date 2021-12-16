@@ -28,5 +28,5 @@ jobs:
           BRANCH: archive
           REPO: self
           FOLDER: build
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_KEY }}
           MESSAGE: "🔁 Dataset update from @ noaione/vthell@{long-sha}"
